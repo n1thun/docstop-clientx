@@ -14,5 +14,6 @@ body > .grid {
   margin-top: -100px;
 }
 .column {
+  margin-top: 180px;
   max-width: 450px;
 }
