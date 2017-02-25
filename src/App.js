@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Input, Form, Button } from 'semantic-ui-react'
 import { Link } from 'react-router'
-import Nav from './components/Nav';
 import Login from './components/Login';
 import './index.css';
 

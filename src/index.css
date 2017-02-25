@@ -10,10 +10,15 @@ body {
 body > .grid {
   height: 100%;
 }
-.image {
-  margin-top: -100px;
+
+#displayArea {
+  margin-top: 110px;
 }
-.column {
+.columnx {
   margin-top: 180px;
-  max-width: 450px;
+  min-width: 450px;
+}
+
+.pdx {
+  padding-right: 2rem !important;
 }
