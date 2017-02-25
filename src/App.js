@@ -1,28 +1,25 @@
-import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {Button} from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { Input, Form, Button } from 'semantic-ui-react'
+import Nav from './components/Nav';
+import Login from './components/Login';
 
 class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to Docstop</h2>
-                </div>
-                <p className="App-intro">
-                    To get started, edit
-                    <code>src/App.js</code>
-                    and save to reload.
-                </p>
-                <div>
-                    <Button primary>Primary</Button>
-                    <Button secondary>Secondary</Button>
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <Form>
+        <Form.Field icon='users' iconPosition='left'>
+          <Input icon='users' iconPosition='left' placeholder='E-mail address' />
+        </Form.Field>
+        <Form.Field >
+          <Input icon='lock' iconPosition='left' placeholder='Password' />
+        </Form.Field>
+        <Button fluid
+         type='submit'
+         color = 'teal'
+         size = 'large'>Submit</Button>
+      </Form>
+    )
+  }
 }
 
 export default App;
