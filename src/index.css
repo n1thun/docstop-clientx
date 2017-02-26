@@ -19,6 +19,11 @@ body > .grid {
   min-width: 450px;
 }
 
-.pdx {
+.pdr {
   padding-right: 2rem !important;
+}
+
+.pdtop {
+  padding-top: 1rem !important;
+  padding-right: 1rem !important;
 }
