@@ -18,17 +18,14 @@ class Login extends Component {
         }).then(function(j) {
             sessionStorage.setItem('cUserId', j._id);
             if (j.isDoctor == true) {
-                browserHistory.push('/doctor/'+"gg");
+                browserHistory.push('/doctor');
             } else {
               browserHistory.push('/patient');
             }
         });
-
-        // browserHistory.push('/home');
     }
 
     render() {
-
         return (
             <div className="ui middle aligned center aligned grid">
                 <div className="columnx">

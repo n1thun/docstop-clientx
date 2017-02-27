@@ -18,14 +18,22 @@ class Dash extends React.Component {
   }
 
   componentWillMount() {
+    var self = this;
     var PatientId = sessionStorage.getItem('cUserId');
 
-    fetch(`api/users/${PatientId}`).then(function(response) {
+    var currentPatient = fetch(`api/users/${PatientId}`).then(function(response) {
     	return response.json();
     }).then(function(j) {
-      console.log(j);
-      this.setState({
-        currentPatient: "j" // set patient as current pt
+      self.setState({
+        currentPatient: j // set patient as current pt
+      });
+    });
+
+    var patientQueries = fetch(`api/queries/queriesByUser/${PatientId}`).then(function(response) {
+      return response.json();
+    }).then(function(j) {
+      self.setState({
+        queries: j // set patient as current pt
       });
     });
 
