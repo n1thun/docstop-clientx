@@ -7,26 +7,6 @@ function getPatients(cb) {
     .then(cb);
 }
 
-// function getUserbyEmail(email, cb) {
-//   return fetch(`api/users/getUserByEmail/${email}`, {
-//     accept: 'application/json',
-//   }).then(checkStatus)
-//     .then(parseJSON)
-//     .then(cb).then(console.log(cb));
-// }
-
-// function getUserbyEmail(email) {
-//   fetch(`api/users/getUserByEmail/${email}`, {
-//       accept: 'application/json',
-//     }).then(function(response) {
-//   	return response.json();
-//   }).then(function(j) {
-//   	// Yay, `j` is a JavaScript object
-//   	console.log(j);
-//   });
-//
-// }
-
 
 function getQueries(cb) {
   return fetch(`api/queries/`, {
@@ -49,13 +29,14 @@ function postReply(queryID, queryReply) {
 })
 }
 
-function getReplies(value, cb) {
-  return fetch(`api/queries/${value}`, {
+function getPatientDetails(value, cb) {
+  return fetch(`api/users/${value}`, {
     accept: 'application/json',
   }).then(checkStatus)
     .then(parseJSON)
     .then(cb);
 }
+
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
@@ -72,5 +53,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const ApiCalls = { getPatients, getQueries, getReplies, postReply };
+const ApiCalls = { getPatients, getQueries, postReply };
 export default ApiCalls;

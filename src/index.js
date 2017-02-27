@@ -19,7 +19,6 @@ ReactDOM.render((
     </Route>
     <Route path="/patient" component={PatientNav}>
       <IndexRoute component={PatientDash}/>
-    <Route path="/about" component={About}/>
     </Route>
     <Route path="*" component={NotFound} />
   </Router>

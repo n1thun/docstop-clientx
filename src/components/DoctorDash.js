@@ -3,7 +3,7 @@ import Schedule from './Schedule'
 import PatientSearch from './PatientSearch'
 import PatientProfile from './PatientProfile'
 import PatientRecord from './PatientRecord'
-import Queries from './Queries'
+import AllQueries from './AllQueries'
 import ApiCall from './ApiCalls';
 
 
@@ -66,7 +66,7 @@ class Dash extends React.Component {
           </div>
         </div>
         <div className="row pdtop">
-        <Queries onQueryClick={this.postQueryReply} queryData={this.state.queries}/>
+        <AllQueries onQueryClick={this.postQueryReply} queryData={this.state.queries}/>
         </div>
       </div>
       </div>

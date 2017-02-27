@@ -2,7 +2,7 @@ import React from 'react'
 import Schedule from './Schedule'
 import PatientProfile from './PatientProfile'
 import PatientRecord from './PatientRecord'
-import Queries from './Queries'
+import PatientQueries from './PatientQueries'
 import ApiCall from './ApiCalls';
 
 
@@ -18,12 +18,17 @@ class Dash extends React.Component {
   }
 
   componentWillMount() {
-    ApiCall.getPatients((patients) => {
+    var PatientId = sessionStorage.getItem('cUserId');
+
+    fetch(`api/users/${PatientId}`).then(function(response) {
+    	return response.json();
+    }).then(function(j) {
+      console.log(j);
       this.setState({
-        patients: patients,
-        currentPatient: patients[0] // set first patient as current pt
+        currentPatient: "j" // set patient as current pt
       });
     });
+
     ApiCall.getQueries((queries) => {
       this.setState({
         queries: queries
@@ -31,18 +36,13 @@ class Dash extends React.Component {
     });
   };
 
-  postQueryReply = (qID, reply) => {
+  postQuery = (qID, reply) => {
     ApiCall.postReply(qID, reply);
     ApiCall.getQueries((queries) => { // find better way
       this.setState({
         queries: queries
       });
     });
-  }
-
-
-  setCurrentPatient = (patient) => {
-    this.setState({ currentPatient: patient });
   }
 
   render() {
@@ -58,7 +58,7 @@ class Dash extends React.Component {
             {/* <Schedule /> */}
           </div>
           <div className="row pdtop">
-          <Queries onQueryClick={this.postQueryReply} queryData={this.state.queries}/>
+          <PatientQueries onQueryClick={this.postQuery} queryData={this.state.queries}/>
           </div>
         </div>
 

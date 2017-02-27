@@ -13,7 +13,6 @@ export default React.createClass({
                         Docstop</h3></Link>
                         <IndexLink className="item" activeStyle={{ color: '#00B5AD' }} to="/patient">
                         Dashboard</IndexLink>
-                        <Link className="item" activeStyle={{ color: '#00B5AD' }} to="/about">About</Link>
                         <Link className="ui right floated item" to="/">Logout</Link>
                     </div>
                 </div>

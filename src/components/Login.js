@@ -16,9 +16,9 @@ class Login extends Component {
         fetch(`api/users/getUserByEmail/${email}`, {accept: 'application/json'}).then(function(response) {
             return response.json();
         }).then(function(j) {
-            console.log(j);
+            sessionStorage.setItem('cUserId', j._id);
             if (j.isDoctor == true) {
-                browserHistory.push('/doctor');
+                browserHistory.push('/doctor/'+"gg");
             } else {
               browserHistory.push('/patient');
             }

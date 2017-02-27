@@ -2,7 +2,7 @@ import React from 'react'
 import ApiCall from './ApiCalls'
 
 
-class Queries extends React.Component{
+class PatientQueries extends React.Component{
 
   constructor () {
   super()
@@ -26,7 +26,7 @@ class Queries extends React.Component{
 
   render() {
     const queryRows = this.props.queryData.map((query) => (
-      <div>
+
       <div>
       <div className="title">
           <i className="dropdown icon"></i>
@@ -39,15 +39,7 @@ class Queries extends React.Component{
               {answer}
             </p>)
         }
-        <div className="ui fluid action input">
-          <input onChange={this.handleChange.bind(this)} placeholder="Enter your reply" type="text"/>
-          <div onClick={() => this.props.onQueryClick(query._id, this.state.input)}
-              className="ui teal button">Reply</div>
-        </div>
       </div>
-
-    </div>
-
     </div>
     ));
 
@@ -60,11 +52,15 @@ class Queries extends React.Component{
               <div className="ui styled fluid accordion">
                 {queryRows}
               </div>
+              <br/>
+              <div className="ui fluid action input">
+                <input onChange={this.handleChange.bind(this)} placeholder="Enter your question" type="text"/>
+                <div className="ui teal button">Ask a question</div>
+              </div>
           </div>
       </div>
-
         )
     }
 }
 
-export default Queries;
+export default PatientQueries;
