@@ -13,43 +13,43 @@ class Dash extends React.Component {
   this.state = {
     patients: [],
     queries: [],
-    currentPatient: {},
+    currentUser: {},
     }
   }
 
   componentWillMount() {
+    console.log("b4 update");
     var self = this;
     var PatientId = sessionStorage.getItem('cUserId');
 
-    var currentPatient = fetch(`api/users/${PatientId}`).then(function(response) {
+    var currentUser = fetch(`api/users/${PatientId}`).then(function(response) {
     	return response.json();
     }).then(function(j) {
       self.setState({
-        currentPatient: j // set patient as current pt
+        currentUser: j // set patient as current pt
       });
     });
 
     var patientQueries = fetch(`api/queries/queriesByUser/${PatientId}`).then(function(response) {
       return response.json();
     }).then(function(j) {
-      self.setState({
-        queries: j // set patient as current pt
-      });
-    });
-
-    ApiCall.getQueries((queries) => {
-      this.setState({
-        queries: queries
-      });
+        self.setState({
+          queries: j // set patient as current pt
+        });
     });
   };
 
-  postQuery = (qID, reply) => {
-    ApiCall.postReply(qID, reply);
-    ApiCall.getQueries((queries) => { // find better way
-      this.setState({
-        queries: queries
-      });
+  postPatientQuery = (patientQuery) => {
+    var patId = sessionStorage.getItem('cUserId');
+    ApiCall.postQuery(patId, patientQuery);
+
+    //relaod queries
+    var patientQueries = fetch(`api/queries/queriesByUser/${patId}`).then(function(response) {
+      return response.json();
+    }).then(function(j) {
+        self.setState({
+          queries: j // set patient as current pt
+        });
     });
   }
 
@@ -58,7 +58,7 @@ class Dash extends React.Component {
       <div>
           <div className="ui grid">
             <div className="five wide column">
-              <PatientProfile profileData={this.state.currentPatient}/>
+              <PatientProfile profileData={this.state.currentUser}/>
             </div>
             <div className="eleven wide column pdr">
             <PatientRecord />
@@ -66,7 +66,7 @@ class Dash extends React.Component {
             {/* <Schedule /> */}
           </div>
           <div className="row pdtop">
-          <PatientQueries onQueryClick={this.postQuery} queryData={this.state.queries}/>
+          <PatientQueries onQueryClick={this.postPatientQuery} queryData={this.state.queries}/>
           </div>
         </div>
 

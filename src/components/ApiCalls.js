@@ -29,6 +29,20 @@ function postReply(queryID, queryReply) {
 })
 }
 
+function postQuery(patientId, patientQuery) {
+  fetch(`api/queries/`, {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    patientId: `${patientId}`,
+    patientQuery: `${patientQuery}`,
+  })
+})
+}
+
 function getPatientDetails(value, cb) {
   return fetch(`api/users/${value}`, {
     accept: 'application/json',
@@ -53,5 +67,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const ApiCalls = { getPatients, getQueries, postReply };
+const ApiCalls = { getPatients, getQueries, postReply, postQuery };
 export default ApiCalls;

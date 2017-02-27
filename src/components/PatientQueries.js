@@ -12,6 +12,7 @@ class PatientQueries extends React.Component{
     }
   }
 
+
   handleChange(e) {
     this.setState({ input: e.target.value });
   }
@@ -55,7 +56,8 @@ class PatientQueries extends React.Component{
               <br/>
               <div className="ui fluid action input">
                 <input onChange={this.handleChange.bind(this)} placeholder="Enter your question" type="text"/>
-                <div className="ui teal button">Ask a question</div>
+                <div onClick={() => this.props.onQueryClick(this.state.input)}
+                  className="ui teal button">Ask a question</div>
               </div>
           </div>
       </div>
