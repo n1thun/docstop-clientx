@@ -5,6 +5,7 @@ export default React.createClass({
     return (
       <div>
         <h3 className="ui top attached header">
+          <i className="first aid icon"></i>
           Medical Records
         </h3>
         <div className="ui attached segment">

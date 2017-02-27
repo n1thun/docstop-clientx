@@ -54,7 +54,8 @@ class AllQueries extends React.Component{
   return (
       <div>
           <h3 className="ui top attached header">
-              Queries
+          <i aria-hidden="true" className="comments icon"></i>
+              Patient Queries
           </h3>
           <div className="ui attached segment">
               <div className="ui styled fluid accordion">

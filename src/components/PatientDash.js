@@ -1,5 +1,5 @@
 import React from 'react'
-import Schedule from './Schedule'
+import PatientAppoinmentView from './PatientAppoinmentView'
 import PatientProfile from './PatientProfile'
 import PatientRecord from './PatientRecord'
 import PatientQueries from './PatientQueries'
@@ -22,6 +22,7 @@ class Dash extends React.Component {
     var self = this;
     var PatientId = sessionStorage.getItem('cUserId');
 
+    // Populates patient profile
     var currentUser = fetch(`api/users/${PatientId}`).then(function(response) {
     	return response.json();
     }).then(function(j) {
@@ -30,6 +31,7 @@ class Dash extends React.Component {
       });
     });
 
+    //Populates patient queries
     var patientQueries = fetch(`api/queries/queriesByUser/${PatientId}`).then(function(response) {
       return response.json();
     }).then(function(j) {
@@ -43,7 +45,7 @@ class Dash extends React.Component {
     var patId = sessionStorage.getItem('cUserId');
     ApiCall.postQuery(patId, patientQuery);
 
-    //relaod queries
+    //reload queries from API
     var patientQueries = fetch(`api/queries/queriesByUser/${patId}`).then(function(response) {
       return response.json();
     }).then(function(j) {

@@ -1,0 +1,3 @@
+Arrange folders
+move fetch()
+write tests

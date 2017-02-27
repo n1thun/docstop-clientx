@@ -1,5 +1,5 @@
 import React from 'react'
-import Schedule from './Schedule'
+import DocAppoinmentView from './DocAppoinmentView'
 import PatientSearch from './PatientSearch'
 import PatientProfile from './PatientProfile'
 import PatientRecord from './PatientRecord'
@@ -62,13 +62,15 @@ class Dash extends React.Component {
             <div className="eleven wide column pdr">
             <PatientRecord />
             </div>
-            {/* <Schedule /> */}
           </div>
         </div>
         <div className="row pdtop">
+        <DocAppoinmentView />
+        <br/>
         <AllQueries onQueryClick={this.postQueryReply} queryData={this.state.queries}/>
-        </div>
       </div>
+      </div>
+
       </div>
     )
   }

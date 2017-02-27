@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 function getPatients(cb) {
-  return fetch(`api/users/`, {
+  return fetch(`api/users/patients`, {
     accept: 'application/json',
   }).then(checkStatus)
     .then(parseJSON)
