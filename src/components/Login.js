@@ -17,10 +17,10 @@ class Login extends Component {
             return response.json();
         }).then(function(j) {
             console.log(j);
-            if (j.isDoctor == false) {
-                browserHistory.push('/home');
+            if (j.isDoctor == true) {
+                browserHistory.push('/doctor');
             } else {
-              browserHistory.push('/about');
+              browserHistory.push('/patient');
             }
         });
 
