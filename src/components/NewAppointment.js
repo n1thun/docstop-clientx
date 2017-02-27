@@ -8,7 +8,7 @@ export default React.createClass({
             <i className="dropdown icon"></i>
             Create new Appointment
           </div>
-          <div className=" content">
+          <div className="active content">
             <form className="ui form">
               <div className="fields">
                 <div className="four wide field">
