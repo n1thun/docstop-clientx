@@ -8,7 +8,6 @@ import Dash from './components/Dash';
 import NotFound from './components/NotFound';
 import { Router, Route, browserHistory,IndexRoute  } from 'react-router'
 
-// TODO: Change Home to App and Dash to home
 ReactDOM.render((
   <Router history={browserHistory}>
   <Route path="/" component={Login}/>

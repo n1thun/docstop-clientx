@@ -33,7 +33,7 @@ function getQueries(cb) {
     accept: 'application/json',
   }).then(checkStatus)
     .then(parseJSON)
-    .then(cb).then(console.log(cb));
+    .then(cb);
 }
 
 function postReply(queryID, queryReply) {
@@ -68,8 +68,8 @@ function checkStatus(response) {
   throw error;
 }
 
-function parseJSON() {
-  return response.json()
+function parseJSON(response) {
+  return response.json();
 }
 
 const ApiCalls = { getPatients, getQueries, getReplies, postReply };

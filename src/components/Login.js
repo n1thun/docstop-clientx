@@ -6,25 +6,26 @@ import ApiCall from './ApiCalls';
 class Login extends Component {
     state = {}
 
-    // handleSubmit(event) {
-    //     event.preventDefault()
-    //     const email = event.target.elements[0].value
-    //     const passwd = event.target.elements[1].value
-    //     const path = `/${email}/${passwd}`
-    //     // ApiCall.getUserbyEmail(email)
-    //
-    //     // var currentUser = ApiCall.getUserbyEmail(email)
-    //     fetch(`api/users/getUserByEmail/${email}`, {accept: 'application/json'}).then(function(response) {
-    //         return response.json();
-    //     }).then(function(j) {
-    //         console.log(j);
-    //         if (j.isDoctor == false) {
-    //             browserHistory.push('/home');
-    //         }
-    //     });
-    //
-    //     // browserHistory.push('/home');
-    // }
+    handleSubmit(event) {
+        event.preventDefault()
+        const email = event.target.elements[0].value
+        const passwd = event.target.elements[1].value
+        const path = `/${email}/${passwd}`
+
+        // var currentUser = ApiCall.getUserbyEmail(email)
+        fetch(`api/users/getUserByEmail/${email}`, {accept: 'application/json'}).then(function(response) {
+            return response.json();
+        }).then(function(j) {
+            console.log(j);
+            if (j.isDoctor == false) {
+                browserHistory.push('/home');
+            } else {
+              browserHistory.push('/about');
+            }
+        });
+
+        // browserHistory.push('/home');
+    }
 
     render() {
 
