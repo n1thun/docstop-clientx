@@ -9,12 +9,41 @@ class DocScheduleTable extends React.Component {
         }
     }
 
+    // componentWillReceiveProps(){
+    //
+    //   var self = this;
+    //   var DocId = this.props.ptID;
+    //   console.log("Pt id below");
+    //   console.log(DocId);
+    //   //Populate doc Schedule
+    //   var doctorSchedule = fetch(`api/appointments/patientSchedule/${DocId}`).then(function(response) {
+    //       return response.json();
+    //   }).then(function(j) {
+    //       console.log(j);
+    //       self.setState({
+    //           appoinments: j // set patient as current pt
+    //       });
+    //   });
+    //
+    // }
+
     componentWillMount() {
+
+      setTimeout(function(){
+          console.log("THIS IS");
+      }, 2000);
+      console.log("DOG");
+
         var self = this;
-        var DocId = sessionStorage.getItem('cUserId');
+        var DocId = this.props.ptID;
+        console.log("Pt id below");
+        console.log(DocId);
+
+        console.log("HELLO");
 
         //Populate doc Schedule
-        var doctorSchedule = fetch(`api/appointments/doctorSchedule/${DocId}`).then(function(response) {
+        var doctorSchedule = fetch(`api/appointments/patientSchedule/${DocId}`).then(function(response) {
+        // var doctorSchedule = fetch(`api/appointments/patientSchedule/58b4dbcd01bc732810ab8285`).then(function(response) {
             return response.json();
         }).then(function(j) {
             console.log(j);

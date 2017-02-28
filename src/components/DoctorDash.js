@@ -14,7 +14,6 @@ class Dash extends React.Component {
   this.state = {
     patients: [],
     queries: [],
-    appointments: [],
     currentPatient: {},
     }
   }
@@ -75,7 +74,7 @@ class Dash extends React.Component {
               <PatientProfile profileData={this.state.currentPatient}/>
             </div>
             <div className="eleven wide column">
-            <DocAppoinmentView appData={this.state.appointments} selectedPatientData={this.state.currentPatient}/>
+            <DocAppoinmentView selectedPatientData={this.state.currentPatient}/>
             </div>
           </div>
         </div>
