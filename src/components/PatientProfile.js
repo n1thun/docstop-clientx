@@ -3,7 +3,7 @@ import React from 'react'
 export default React.createClass({
   render() {
     return (
-      <div className="ui centered card">
+      <div className="ui fluid card">
         <div className="image">
           <img src="http://semantic-ui.com/images/avatar2/large/matthew.png"/>
         </div>

@@ -58,21 +58,24 @@ class Dash extends React.Component {
   render() {
     return (
       <div>
-          <div className="ui stackable grid">
+          <div className="ui stackable padded grid">
             <div className="stretched row">
-            <div className="four wide column">
+            <div className="four wide column ">
               <PatientProfile profileData={this.state.currentUser}/>
             </div>
-            <div className="twelve wide column pdr">
+            <div className="twelve wide column">
             <PatientAppoinmentView />
             </div>
           </div>
-          </div>
-          <div className="row pdtop">
+            <div className="sixteen wide column">
+          <div className="row ">
           <PatientQueries onQueryClick={this.postPatientQuery} queryData={this.state.queries}/>
           </div>
+          <br/>
+          <PatientRecord />
+          </div>
         </div>
-
+        </div>
     )
   }
 }

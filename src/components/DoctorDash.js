@@ -48,18 +48,18 @@ class Dash extends React.Component {
 
   render() {
     return (
-      <div className="ui stackable grid">
+      <div className="ui stackable padded grid">
         <div className="four wide column">
           <PatientSearch patientData={this.state.patients}
             onPatientClick={this.setCurrentPatient}/>
         </div>
         <div className="twelve wide column">
-        <div className="ui stackable grid">
+        <div className="ui stackable  grid">
           <div className="row stretched">
             <div className="five wide column">
               <PatientProfile profileData={this.state.currentPatient}/>
             </div>
-            <div className="eleven wide column pdr">
+            <div className="eleven wide column">
             <DocAppoinmentView />
             </div>
           </div>
@@ -70,7 +70,6 @@ class Dash extends React.Component {
         <PatientRecord />
       </div>
       </div>
-
       </div>
     )
   }

@@ -12,19 +12,19 @@ body > .grid {
 }
 
 #displayArea {
-  margin-top: 105px;
+  margin-top: 100px;
 }
 .columnx {
   margin-top: 180px;
   min-width: 450px;
 }
 
-.pdr {
-  padding-right: 2rem !important;
+.pdside {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+
 }
 
 .pdtop {
   padding-top: 1rem !important;
-  padding-right: 1rem !important;
-  padding-left: 1rem !important;
 }

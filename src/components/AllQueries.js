@@ -27,7 +27,6 @@ class AllQueries extends React.Component{
   render() {
     const queryRows = this.props.queryData.map((query) => (
       <div>
-      <div>
       <div className="title">
           <i className="dropdown icon"></i>
           {query.patientQuery}
@@ -45,9 +44,6 @@ class AllQueries extends React.Component{
               className="ui teal button">Reply</div>
         </div>
       </div>
-
-    </div>
-
     </div>
     ));
 
