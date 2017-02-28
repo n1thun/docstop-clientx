@@ -12,10 +12,9 @@ class DocScheduleTable extends React.Component {
     componentWillMount() {
         var self = this;
         var DocId = sessionStorage.getItem('cUserId');
-        console.log(this.props.selectedPatientId);
 
         //Populate doc Schedule
-        var getSchedule = fetch(`api/appointments/patientSchedule/58b064560a587c30b015a069`).then(function(response) {
+        var doctorSchedule = fetch(`api/appointments/doctorSchedule/${DocId}`).then(function(response) {
             return response.json();
         }).then(function(j) {
             console.log(j);

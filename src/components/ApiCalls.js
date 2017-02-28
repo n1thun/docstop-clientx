@@ -29,6 +29,11 @@ function postQuery(patientId, patientQuery) {
     })
 }
 
+function testApi(patientId) {
+      console.log("test api call");
+    console.log(patientId);
+}
+
 function postAppointment(patientId, doctorId, appointmentDate, appointmentTime, appointmentLocation) {
     fetch(`api/appointments`, {
         method: 'POST',
@@ -65,6 +70,7 @@ const ApiCalls = {
     getQueries,
     postReply,
     postQuery,
-    postAppointment
+    postAppointment,
+    testApi
 };
 export default ApiCalls;

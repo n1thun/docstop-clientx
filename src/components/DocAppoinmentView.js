@@ -7,11 +7,11 @@ import ApiCall from './ApiCalls'
 class DocAppoinmentView extends React.Component {
 
   componentWillMount() {
-    console.log(this.props.selectedPatientData._id);
+    console.log(this.props.appData);
   };
 
 
-  createNewAppointment = (appointmentDetails  ) => {
+  createNewAppointment = (appointmentDetails ) => {
             var doctorId = sessionStorage.getItem('cUserId');
 
             ApiCall.postAppointment(this.props.selectedPatientData._id,
@@ -33,7 +33,7 @@ class DocAppoinmentView extends React.Component {
           Appointment Schedule
         </h3>
         <div className="ui attached segment">
-        <DocScheduleTable selectedPatientId={this.props.selectedPatientData}/>
+        <DocScheduleTable appointmentData = {this.props.appData} selectedPatientId={this.props.selectedPatientData}/>
         <NewAppointment onNewAppClick={this.createNewAppointment}/>
         </div>
       </div>
