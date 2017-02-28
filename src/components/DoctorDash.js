@@ -19,6 +19,20 @@ class Dash extends React.Component {
   }
 
   componentWillMount() {
+    console.log("b4 update");
+    var self = this;
+    var userId = sessionStorage.getItem('cUserId');
+
+    // Populates patient profile
+    var currentUser = fetch(`api/users/${userId}`).then(function(response) {
+      return response.json();
+    }).then(function(j) {
+      self.setState({
+        currentUser: j // set patient as current pt
+      });
+    });
+
+
     ApiCall.getPatients((patients) => {
       this.setState({
         patients: patients,
@@ -60,7 +74,7 @@ class Dash extends React.Component {
               <PatientProfile profileData={this.state.currentPatient}/>
             </div>
             <div className="eleven wide column">
-            <DocAppoinmentView />
+            <DocAppoinmentView selectedPatientData={this.state.currentPatient}/>
             </div>
           </div>
         </div>

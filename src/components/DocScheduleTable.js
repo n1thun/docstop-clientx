@@ -10,12 +10,12 @@ class DocScheduleTable extends React.Component {
     }
 
     componentWillMount() {
-        console.log("b4 update");
         var self = this;
         var DocId = sessionStorage.getItem('cUserId');
+        console.log(this.props.selectedPatientId);
 
         //Populate doc Schedule
-        var doctorSchedule = fetch(`api/appointments/doctorSchedule/${DocId}`).then(function(response) {
+        var getSchedule = fetch(`api/appointments/patientSchedule/58b064560a587c30b015a069`).then(function(response) {
             return response.json();
         }).then(function(j) {
             console.log(j);
@@ -30,7 +30,6 @@ class DocScheduleTable extends React.Component {
 
         const scheduleRows = this.state.appoinments.map((entry) => (
             <tr>
-                <td>{entry.patientId}</td>
                 <td>{entry.appointmentTime}</td>
                 <td>{entry.appointmentDate}</td>
                 <td>{entry.location}</td>
@@ -43,7 +42,6 @@ class DocScheduleTable extends React.Component {
             <table className="ui celled table">
                 <thead>
                     <tr>
-                        <th>Patient name</th>
                         <th>Time</th>
                         <th>Date</th>
                         <th>Location</th>

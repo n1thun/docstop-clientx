@@ -35,16 +35,12 @@ class PatientSearch extends React.Component {
 
 
     return (
-
       <div>
           <h3 className="ui top attached header">
           <i aria-hidden="true" className="find icon"></i>
               Search
           </h3>
           <div className="ui attached segment">
-
-
-
       <div id='patient-search'>
       <table className='ui selectable structured large table'>
         <thead>

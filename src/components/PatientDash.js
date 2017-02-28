@@ -18,12 +18,11 @@ class Dash extends React.Component {
   }
 
   componentWillMount() {
-    console.log("b4 update");
     var self = this;
-    var PatientId = sessionStorage.getItem('cUserId');
+    var userId = sessionStorage.getItem('cUserId');
 
     // Populates patient profile
-    var currentUser = fetch(`api/users/${PatientId}`).then(function(response) {
+    var currentUser = fetch(`api/users/${userId}`).then(function(response) {
     	return response.json();
     }).then(function(j) {
       self.setState({
@@ -32,7 +31,7 @@ class Dash extends React.Component {
     });
 
     //Populates patient queries
-    var patientQueries = fetch(`api/queries/queriesByUser/${PatientId}`).then(function(response) {
+    var patientQueries = fetch(`api/queries/queriesByUser/${userId}`).then(function(response) {
       return response.json();
     }).then(function(j) {
         self.setState({
