@@ -61,11 +61,10 @@ class About extends React.Component {
     return (
       <div>
         <h1> About page </h1>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-        <label >file upload:</label>
-        <input type="text" name="title" placeholder="title" />
-        <input type="file" name="upl"/>
-        <input type="submit" value="Upload" />
+        <form method="post" encType="multipart/form-data" action="/api/files/upload">
+            <input type="text" name="fname" />
+            <input type="file" name="upl"/>
+            <input type="submit" value="Upload"/>
         </form>
 
       </div>

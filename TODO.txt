@@ -1,3 +1,5 @@
 Arrange folders
 move fetch()
 write tests
+Casing is important for React components.
+Try encType instead of ENCTYPE. (You should have seen a warning in your console suggesting that you use encType.)
