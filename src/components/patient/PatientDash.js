@@ -1,9 +1,9 @@
 import React from 'react'
 import PatientAppoinmentView from './PatientAppoinmentView'
-import PatientProfile from './PatientProfile'
-import PatientRecord from './PatientRecord'
+import PatientProfile from '../common/PatientProfile'
+import PatientRecord from '../common/PatientRecord'
 import PatientQueries from './PatientQueries'
-import ApiCall from './ApiCalls';
+import ApiCall from '../ApiCalls';
 
 
 class Dash extends React.Component {

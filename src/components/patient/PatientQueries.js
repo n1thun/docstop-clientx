@@ -1,5 +1,5 @@
 import React from 'react'
-import ApiCall from './ApiCalls'
+import ApiCall from '../ApiCalls'
 
 
 class PatientQueries extends React.Component{

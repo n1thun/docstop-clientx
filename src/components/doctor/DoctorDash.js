@@ -1,10 +1,10 @@
 import React from 'react'
 import DocAppoinmentView from './DocAppoinmentView'
 import PatientSearch from './PatientSearch'
-import PatientProfile from './PatientProfile'
-import PatientRecord from './PatientRecord'
+import PatientProfile from '../common/PatientProfile'
+import PatientRecord from '../common//PatientRecord'
 import AllQueries from './AllQueries'
-import ApiCall from './ApiCalls';
+import ApiCall from '../ApiCalls';
 
 
 class Dash extends React.Component {
@@ -19,7 +19,6 @@ class Dash extends React.Component {
   }
 
   componentWillMount() {
-    console.log("b4 update");
     var self = this;
     var userId = sessionStorage.getItem('cUserId');
 
@@ -57,7 +56,9 @@ class Dash extends React.Component {
 
 
   setCurrentPatient = (patient) => {
+    console.log("Set pt id");
     this.setState({ currentPatient: patient });
+    sessionStorage.setItem('patientUserId', patient._id);
   }
 
   render() {

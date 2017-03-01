@@ -1,5 +1,5 @@
 import React from 'react'
-import ApiCalls from './ApiCalls';
+import ApiCalls from '../ApiCalls';
 
 class PatientSearch extends React.Component {
 
