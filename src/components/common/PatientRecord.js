@@ -1,7 +1,42 @@
-import React from 'react'
+import React    from 'react'
+import ApiCalls from '../ApiCalls';
+import Request  from 'superagent'
+import _        from 'lodash'
 
-export default React.createClass({
+class PatientRecord extends React.Component {
+
+  constructor () {
+  super()
+  this.state = {}
+  }
+
+
+  componentWillMount(){
+
+    var url = "api/files/byUser/58b3c1ce90cf20232cec415c/";
+    Request.get(url).then((response) =>{
+      console.log(response.body);
+      this.setState({
+        files: response.body
+      });
+    });
+
+  }
+
+
   render() {
+
+    var fileRows = _.map(this.state.files, (file) => {
+      return <div className="item">
+          <i className="large file middle aligned icon"></i>
+          <div className="content">
+            <a className="header">{file.filename}</a>
+            <div className="description">{file.creationDate}</div>
+          </div>
+        </div>;
+    });
+
+
     return (
       <div>
         <h3 className="ui top attached header">
@@ -10,27 +45,8 @@ export default React.createClass({
         </h3>
         <div className="ui attached segment">
           <div className="ui relaxed divided list">
-        <div className="item">
-          <i className="large file middle aligned icon"></i>
-          <div className="content">
-            <a className="header">Semantic-Org/Semantic-UI</a>
-            <div className="description">Updated 10 mins ago</div>
-          </div>
-        </div>
-        <div className="item">
-          <i className="large file middle aligned icon"></i>
-          <div className="content">
-            <a className="header">Semantic-Org/Semantic-UI-Docs</a>
-            <div className="description">Updated 22 mins ago</div>
-          </div>
-        </div>
-        <div className="item">
-          <i className="large file middle aligned icon"></i>
-          <div className="content">
-            <a className="header">Semantic-Org/Semantic-UI-Meteor</a>
-            <div className="description">Updated 34 mins ago</div>
-          </div>
-        </div>
+
+            { fileRows }
       </div>
       <div className="ui vertical animated button" tabindex="0">
         <div className="visible content">Upload file</div>
@@ -42,4 +58,7 @@ export default React.createClass({
       </div>
     )
   }
-})
+}
+
+
+export default PatientRecord;

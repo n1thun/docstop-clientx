@@ -5,7 +5,7 @@ import PatientProfile from '../common/PatientProfile'
 import PatientRecord from '../common//PatientRecord'
 import AllQueries from './AllQueries'
 import ApiCall from '../ApiCalls';
-
+import Request from 'superagent'
 
 class Dash extends React.Component {
 
@@ -14,22 +14,16 @@ class Dash extends React.Component {
   this.state = {
     patients: [],
     queries: [],
+    files: [],
     currentPatient: {},
     }
   }
 
+
+
   componentWillMount() {
     var self = this;
-    var userId = sessionStorage.getItem('cUserId');
-
-    // Populates patient profile
-    var currentUser = fetch(`api/users/${userId}`).then(function(response) {
-      return response.json();
-    }).then(function(j) {
-      self.setState({
-        currentUser: j // set patient as current pt
-      });
-    });
+    console.log(this.state.currentPatient._id);
 
 
     ApiCall.getPatients((patients) => {
@@ -43,6 +37,8 @@ class Dash extends React.Component {
         queries: queries
       });
     });
+
+
   };
 
   postQueryReply = (qID, reply) => {
@@ -56,7 +52,6 @@ class Dash extends React.Component {
 
 
   setCurrentPatient = (patient) => {
-    console.log("Set pt id");
     this.setState({ currentPatient: patient });
     sessionStorage.setItem('patientUserId', patient._id);
   }
@@ -82,7 +77,7 @@ class Dash extends React.Component {
         <div className="row pdtop">
         <AllQueries onQueryClick={this.postQueryReply} queryData={this.state.queries}/>
         <br/>
-        <PatientRecord />
+        <PatientRecord currentPt={this.state.files}/>
       </div>
       </div>
       </div>

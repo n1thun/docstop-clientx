@@ -1,10 +1,27 @@
 /* eslint-disable no-undef */
 function getPatients(cb) {
-    return fetch(`api/users/patients`, {accept: 'application/json'}).then(checkStatus).then(parseJSON).then(cb);
+    return fetch(`api/users/patients`,
+      {accept: 'application/json'})
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(cb);
 }
 
 function getQueries(cb) {
-    return fetch(`api/queries/`, {accept: 'application/json'}).then(checkStatus).then(parseJSON).then(cb);
+    return fetch(`api/queries/`, {
+      accept: 'application/json'})
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(cb);
+}
+
+
+function getFiles(value, cb) {
+  console.log("files api called");
+    return fetch(`api/files/byUser/${value}`,
+       {accept: 'application/json'})
+       .then(checkStatus)
+       .then(parseJSON).then(cb);
 }
 
 function postReply(queryID, queryReply) {
@@ -47,7 +64,10 @@ function postAppointment(patientId, doctorId, appointmentDate, appointmentTime, 
 }
 
 function getPatientDetails(value, cb) {
-    return fetch(`api/users/${value}`, {accept: 'application/json'}).then(checkStatus).then(parseJSON).then(cb);
+    return fetch(`api/users/${value}`,
+       {accept: 'application/json'})
+       .then(checkStatus)
+       .then(parseJSON).then(cb);
 }
 
 function checkStatus(response) {
@@ -67,6 +87,7 @@ function parseJSON(response) {
 
 const ApiCalls = {
     getPatients,
+    getFiles,
     getQueries,
     postReply,
     postQuery,
